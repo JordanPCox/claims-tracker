@@ -8,14 +8,12 @@ import Navigation from './components/Navigation';
 function App() {
   return (
     <Router>
-      <div>
-        <Navigation />
-        <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/adjusters" component={Adjusters} />
-          <Route path="/claims" component={Claims} />
-        </Routes>
-      </div>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/adjusters" element={<Adjusters />} />
+        <Route path="/claims" element={<Claims />} />
+      </Routes>
     </Router>
   );
 }
