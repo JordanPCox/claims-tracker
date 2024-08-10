@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//consider tweaking schema
 const AdjusterSchema = new mongoose.Schema({
   adjusterId: String,
   name: String,
