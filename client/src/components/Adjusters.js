@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function Adjusters() {
   const [adjusters, setAdjusters] = useState([]);
@@ -20,11 +21,28 @@ function Adjusters() {
   return (
     <div>
       <h2>Adjusters</h2>
-      <ul>
-        {adjusters.map((adjuster) => (
-          <li key={adjuster.adjusterId}>{adjuster.name}</li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Adjuster Name</th>
+            <th>Adjuster Number</th>
+            <th>Daily Assignment Count</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {adjusters.map((adjuster) => (
+            <tr key={adjuster.adjusterId}>
+              <td>{adjuster.name}</td>
+              <td>{adjuster.adjusterId}</td>
+              <td>{adjuster.dailyAssignmentCount}</td>
+              <td>
+                <Link to={`/adjusters/${adjuster.adjusterId}`}>View Details</Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
