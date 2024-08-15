@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function Adjusters() {
   const [adjusters, setAdjusters] = useState([]);
 
   useEffect(() => {
-    const fetchAdjusters = async () => {
-      try {
-        const res = await axios.get('http://localhost:5000/api/adjusters');
-        setAdjusters(res.data);
-      } catch (error) {
-        console.error('Error fetching adjusters:', error);
-      }
-    };
-
-    fetchAdjusters();
+    // Mock data for testing
+    const mockData = [
+      {
+        adjusterId: 'A001',
+        name: 'John Doe',
+        dailyAssignmentCount: 5,
+      },
+      {
+        adjusterId: 'A002',
+        name: 'Jane Smith',
+        dailyAssignmentCount: 8,
+      },
+      {
+        adjusterId: 'A003',
+        name: 'Emily Johnson',
+        dailyAssignmentCount: 3,
+      },
+    ];
+    
+    setAdjusters(mockData);
   }, []);
 
   return (
@@ -37,7 +46,9 @@ function Adjusters() {
               <td>{adjuster.adjusterId}</td>
               <td>{adjuster.dailyAssignmentCount}</td>
               <td>
-                <Link to={`/adjusters/${adjuster.adjusterId}`}>View Details</Link>
+                <Link to={`/adjusters/${adjuster.adjusterId}`}>
+                  View Details
+                </Link>
               </td>
             </tr>
           ))}
