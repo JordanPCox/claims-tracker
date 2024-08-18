@@ -4,23 +4,23 @@ const Adjuster = require('../models/Adjuster');
 const Claim = require('../models/Claim');
 
 // Get all adjusters
-router.get('/adjusters', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const adjusters = await Adjuster.find();
     res.json(adjusters);
   } catch (error) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
 // Get specific adjuster by id
-router.get('/adjusters/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const adjuster = await Adjuster.findById(req.params.id)
     if (!adjuster) return res.status(404).json({ message: 'Adjuster not found' });
     res.json(adjuster);
   } catch (error) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: error.message });
   }
 });
 // Add new adjuster
