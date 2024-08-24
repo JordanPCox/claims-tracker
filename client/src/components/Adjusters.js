@@ -38,7 +38,6 @@ function Adjusters() {
               <td>{adjuster.dailyAssignmentCount}</td>
               <td>
                 <Link to={`/adjusters/${adjuster._id}`}>View Details</Link>
-
               </td>
             </tr>
           ))}
