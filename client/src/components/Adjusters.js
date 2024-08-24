@@ -37,7 +37,8 @@ function Adjusters() {
               <td>{adjuster.adjusterId}</td>
               <td>{adjuster.dailyAssignmentCount}</td>
               <td>
-                <Link to={`/adjusters/${adjuster.adjusterId}`}>View Details</Link>
+                <Link to={`/adjusters/${adjuster._id}`}>View Details</Link>
+
               </td>
             </tr>
           ))}
