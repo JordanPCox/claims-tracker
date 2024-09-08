@@ -3,7 +3,7 @@ import MapComponent from './MapComponent';
 import AdjusterList from './AdjusterList';
 import axios from 'axios';
 
-function Home() {
+function Dashboard() {
   const [adjusters, setAdjusters] = useState([]);
   const [geoData, setGeoData] = useState(null);
 
@@ -19,7 +19,7 @@ function Home() {
 
     const fetchGeoData = async () => {
       try {
-        const res = await axios.get('/path/to/geojson'); // Replace with your actual GeoJSON data path
+        const res = await axios.get('/path/to/geojson'); // Replace with actual path to GeoJSON file or API
         setGeoData(res.data);
       } catch (error) {
         console.error('Error fetching GeoJSON data:', error);
@@ -31,20 +31,15 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to the Claims Tracker Dashboard</h1>
-      {/* Include other content for your home page here */}
-
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div style={{ width: '60%' }}>
-          <MapComponent geoData={geoData} onZipClick={(zip) => console.log('Clicked zip:', zip)} />
-        </div>
-        <div style={{ width: '35%' }}>
-          <AdjusterList adjusters={adjusters} />
-        </div>
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ width: '60%' }}>
+        <MapComponent geoData={geoData} onZipClick={(zip) => console.log('Clicked zip:', zip)} />
+      </div>
+      <div style={{ width: '35%' }}>
+        <AdjusterList adjusters={adjusters} />
       </div>
     </div>
   );
 }
 
-export default Home;
+export default Dashboard;
