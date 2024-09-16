@@ -19,7 +19,7 @@ function Home() {
 
     const fetchGeoData = async () => {
       try {
-        const res = await axios.get('/path/to/geojson'); // Replace with your actual GeoJSON data path
+        const res = await axios.get('/path/to/geojson'); // Replace with actual GeoJSON data path
         setGeoData(res.data);
       } catch (error) {
         console.error('Error fetching GeoJSON data:', error);
@@ -33,7 +33,7 @@ function Home() {
   return (
     <div>
       <h1>Welcome to the Claims Tracker Dashboard</h1>
-      {/* Include other content for your home page here */}
+      {/* Include other content for home page here */}
 
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ width: '60%' }}>
